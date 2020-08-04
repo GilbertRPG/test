@@ -48,6 +48,40 @@ func factorial(base int) int {
 	return output
 }
 
+type MyInt int // making alias types
+
+type MyStruct struct {
+	foo int
+	bar string
+}
+
+// having this function means MyStruct implements the "MyInterface" iface
+func (a MyStruct) Foo() bool {
+	return a.bar == "cheese"
+	// name.member accesses a struct's members
+}
+
+// general format of variable declaration:
+// "var" [name] [type]
+
+// general format of a function declaration:
+// "func" [name]([params]) ([return types]) {
+//     [body]
+// }
+// name is its chosen name, params are variable declarations
+// (without the "var"), return types are a list of types, and
+// body is a list of statements
+
+// general format of a type declaration:
+// "type [name] [underlying]
+// name is just our name for the type
+// underlying is the specification for a legal name (often a struct)
+
+type MyInterface interface {
+	Foo() bool // this looks like a function declaration!
+	// "func" is implied, and the body is left out
+}
+
 func main() {
 	fmt.Println(factorial(5))
 }
