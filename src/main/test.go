@@ -84,5 +84,43 @@ type MyInterface interface {
 
 func main() {
 	fmt.Println(factorial(5))
+
+//	var a int
+	// "named" and "underlying" type, both int
+
+//	var x MyInt
+	// what type is x
+	// the "named type: MyInt
+	// the "underlying" type: int
+
+//	y := x + 5
+	// I can use any type as though it were its UNDERLYING type
+	// in terms of expressions and stuff
+
+//	var z MyStruct
+	// named type: MyStruct
+	// underlying type: struct {
+	// 	foo int
+	// 	bar string
+	//}
+	// interfaces it implements, which are determined by 
+	// functions it has.
+
+	// interfaces
+	// interfaces are lists of methods. all types implement at
+	// least the "empty interface', interface{}
+
+	var foo, foo2 MyInterface
+	foo = MyStruct{} // creates a new MyStruct with default vaules
+	foo2 = MyStruct{1, "cheese"} // init fields in order
+	// all of the must be specified if you do it this way ^
+//	foo = MyStruct{foo: 1} // init fields selectively by name
+//	foo = 7 // not allowed, becuase 7 doesn't have a Foo function
+
+	fmt.Println("foo", foo.Foo(), "foo2", foo2.Foo())
+	// what is an interface?
+	// it is a tuple containing an object's type, and instance
+	// interfaces correspond to a set of methods(functions) on an object.
+
 }
 
